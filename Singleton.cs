@@ -12,13 +12,21 @@ namespace Design
 
         }
 
-        public static Singleton GetInstance()
+        public static Singleton GetInstance
         {
 
-            if (instance == null)
-                instance = new Singleton();
+            //if (instance == null)
+            //    instance = new Singleton();
 
-            return instance;
+            //return instance;
+            get 
+            {
+                if (instance == null)
+                    instance = new Singleton();
+
+                return instance;
+
+            }
         }
 
         public void PrintDetails(string str)

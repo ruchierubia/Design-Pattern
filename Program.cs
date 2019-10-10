@@ -7,9 +7,9 @@ namespace Design
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            Singleton sg = Singleton.GetInstance();
+            Singleton sg = Singleton.GetInstance;
             sg.PrintDetails(sg.GetHashCode().ToString());
-            Singleton sg2 = Singleton.GetInstance();
+            Singleton sg2 = Singleton.GetInstance;
             sg.PrintDetails(sg.GetHashCode().ToString());
         }
     }
