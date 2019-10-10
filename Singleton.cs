@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Design
 {
-    public sealed class Singleton
+    public sealed class Singleton // sealed keyword is need to avoid nested derived class that can create multiple instances
     {
         public static Singleton instance = null;
         private Singleton()
