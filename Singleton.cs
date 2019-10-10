@@ -7,6 +7,7 @@ namespace Design
     public sealed class Singleton // sealed keyword is need to avoid nested derived class that can create multiple instances
     {
         public static Singleton instance = null;
+        private static readonly object obj = new object(); // use as lock object to wrap instance creatio
         private Singleton()
         {
 
@@ -21,8 +22,14 @@ namespace Design
             //return instance;
             get 
             {
-                if (instance == null)
-                    instance = new Singleton();
+                if (instance == null) //double checked locking
+                {
+                    lock (obj) // lock to make sure only on thread can enter the code block at any given time
+                    {
+                        if (instance == null)
+                            instance = new Singleton();
+                    }
+                }
 
                 return instance;
 
