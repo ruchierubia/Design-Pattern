@@ -6,7 +6,9 @@ namespace Design
 {
     public sealed class Singleton // sealed keyword is need to avoid nested derived class that can create multiple instances
     {
-        public static readonly Singleton instance = new Singleton();// To make it eager loading
+        public static readonly Lazy<Singleton> instance = new Lazy<Singleton>(
+          () => new Singleton()  
+        );// To make it lazy loading Lazy object are thread safe
        // private static readonly object obj = new object(); // use as lock object to wrap instance creatio
         private Singleton()
         {
@@ -31,7 +33,7 @@ namespace Design
                 //    }
                 //}
 
-                return instance;
+                return instance.Value;
 
             }
         }
