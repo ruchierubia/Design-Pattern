@@ -50,8 +50,18 @@ namespace Design
          * 
          * 
          * 
+         * Static vs singleton
+         * static only provide methods singleton is object
          * 
+         * singleton uses realworld
          * 
+         * logging
+         * manage connection to database
+         * printer pooling
+         * file management
+         * configuration
+         * cache
+         * session base shopping cart
          */
     }
 }
